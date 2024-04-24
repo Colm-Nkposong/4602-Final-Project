@@ -2,7 +2,6 @@ layout: page
 title: "public_html"
 permalink: /html
 
-Test 
 
 <!DOCTYPE html>
 <html>
