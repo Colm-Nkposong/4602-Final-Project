@@ -2,7 +2,6 @@ layout: page
 title: "public_html"
 permalink: /html
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,25 @@ permalink: /html
   <script>
     const spec = {
   "config": {"view": {"continuousWidth": 400, "continuousHeight": 300}},
-  "layer": [
+  "vconcat": [
+    {
+      "mark": "line",
+      "encoding": {
+        "color": {"field": "Metric", "type": "nominal"},
+        "x": {
+          "field": "DATE",
+          "scale": {"domain": {"selection": "selector006"}},
+          "type": "temporal"
+        },
+        "y": {
+          "field": "Value",
+          "title": "Percentage change over time",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "width": 400
+    },
     {
       "mark": "line",
       "encoding": {
@@ -27,84 +44,18 @@ permalink: /html
           "type": "quantitative"
         }
       },
-      "height": 200,
-      "width": 400
-    },
-    {
-      "mark": {"type": "rule", "color": "#aaa"},
-      "encoding": {"x": {"field": "DATE", "type": "temporal"}},
-      "transform": [{"filter": {"selection": "selector032"}}]
-    },
-    {
-      "mark": "circle",
-      "encoding": {
-        "color": {"field": "Metric", "type": "nominal"},
-        "opacity": {
-          "condition": {"value": 1, "selection": "selector032"},
-          "value": 0
-        },
-        "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
-      },
-      "height": 200,
+      "height": 60,
       "selection": {
-        "selector032": {
-          "type": "single",
+        "selector006": {
+          "type": "interval",
           "encodings": ["x"],
-          "on": "mouseover",
-          "nearest": true,
-          "empty": "none"
+          "resolve": "global"
         }
       },
-      "width": 400
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 5,
-        "dy": -5,
-        "stroke": "white",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "color": {"field": "Metric", "type": "nominal"},
-        "text": {"field": "Value", "type": "quantitative"},
-        "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
-      },
-      "height": 200,
-      "transform": [{"filter": {"selection": "selector032"}}],
-      "width": 400
-    },
-    {
-      "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
-      "encoding": {
-        "color": {"field": "Metric", "type": "nominal"},
-        "text": {"field": "Value", "type": "quantitative"},
-        "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
-      },
-      "height": 200,
-      "transform": [{"filter": {"selection": "selector032"}}],
       "width": 400
     }
   ],
   "data": {"name": "data-a2782ad4c223fcc27621ccffe2e65585"},
-  "height": 500,
-  "width": 700,
   "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json",
   "datasets": {
     "data-a2782ad4c223fcc27621ccffe2e65585": [
