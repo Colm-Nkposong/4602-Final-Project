@@ -1,8 +1,4 @@
-layout: page
-title: "public_html"
-permalink: /html
 
-<!DOCTYPE html>
 <html>
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.28.0"></script>
