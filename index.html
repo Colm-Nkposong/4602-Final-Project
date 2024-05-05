@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.28.0"></script>
@@ -9,7 +9,7 @@
   <div id="vis"/>
   <script>
     const spec = {
-  "config": {"view": {"continuousWidth": 400, "continuousHeight": 300}},
+  "config": {"view": {"continuousWidth": 800, "continuousHeight": 400}},
   "layer": [
     {
       "mark": "line",
@@ -22,20 +22,20 @@
           "type": "quantitative"
         }
       },
-      "height": 200,
-      "width": 400
+      "height": 400,
+      "width": 800
     },
     {
       "mark": {"type": "rule", "color": "#aaa"},
       "encoding": {"x": {"field": "DATE", "type": "temporal"}},
-      "transform": [{"filter": {"selection": "selector001"}}]
+      "transform": [{"filter": {"selection": "selector010"}}]
     },
     {
       "mark": "circle",
       "encoding": {
         "color": {"field": "Metric", "type": "nominal"},
         "opacity": {
-          "condition": {"value": 1, "selection": "selector001"},
+          "condition": {"value": 1, "selection": "selector010"},
           "value": 0
         },
         "x": {"field": "DATE", "type": "temporal"},
@@ -45,9 +45,9 @@
           "type": "quantitative"
         }
       },
-      "height": 200,
+      "height": 400,
       "selection": {
-        "selector001": {
+        "selector010": {
           "type": "single",
           "encodings": ["x"],
           "on": "mouseover",
@@ -55,7 +55,7 @@
           "empty": "none"
         }
       },
-      "width": 400
+      "width": 600
     },
     {
       "mark": {
@@ -76,9 +76,9 @@
           "type": "quantitative"
         }
       },
-      "height": 200,
-      "transform": [{"filter": {"selection": "selector001"}}],
-      "width": 400
+      "height": 400,
+      "transform": [{"filter": {"selection": "selector010"}}],
+      "width": 800
     },
     {
       "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
@@ -92,14 +92,14 @@
           "type": "quantitative"
         }
       },
-      "height": 200,
-      "transform": [{"filter": {"selection": "selector001"}}],
-      "width": 400
+      "height": 400,
+      "transform": [{"filter": {"selection": "selector010"}}],
+      "width": 800
     }
   ],
   "data": {"name": "data-a2782ad4c223fcc27621ccffe2e65585"},
-  "height": 500,
-  "width": 700,
+  "height": 1000,
+  "width": 1200,
   "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json",
   "datasets": {
     "data-a2782ad4c223fcc27621ccffe2e65585": [
