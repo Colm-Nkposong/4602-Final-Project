@@ -9,45 +9,51 @@
   <div id="vis"/>
   <script>
     const spec = {
-  "config": {"view": {"continuousWidth": 800, "continuousHeight": 400}},
+  "config": {
+    "view": {"continuousWidth": 400, "continuousHeight": 300},
+    "axis": {
+      "gridColor": "black",
+      "gridWidth": {
+        "condition": {"test": "(datum.value === 0)", "value": 2},
+        "value": 0.2
+      }
+    }
+  },
   "layer": [
     {
-      "mark": "line",
+      "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "point": {"fill": "white", "filled": false}
+      },
       "encoding": {
         "color": {"field": "Metric", "type": "nominal"},
         "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
+        "y": {"field": "Value", "title": null, "type": "quantitative"}
       },
-      "height": 400,
-      "width": 800
+      "height": 200,
+      "title": "Percentage change in GDP, Inflation, & Unemployment (2006 - 2016)",
+      "width": 400
     },
     {
       "mark": {"type": "rule", "color": "#aaa"},
       "encoding": {"x": {"field": "DATE", "type": "temporal"}},
-      "transform": [{"filter": {"selection": "selector010"}}]
+      "transform": [{"filter": {"selection": "selector001"}}]
     },
     {
       "mark": "circle",
       "encoding": {
         "color": {"field": "Metric", "type": "nominal"},
         "opacity": {
-          "condition": {"value": 1, "selection": "selector010"},
+          "condition": {"value": 1, "selection": "selector001"},
           "value": 0
         },
         "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
+        "y": {"field": "Value", "title": null, "type": "quantitative"}
       },
-      "height": 400,
+      "height": 200,
       "selection": {
-        "selector010": {
+        "selector001": {
           "type": "single",
           "encodings": ["x"],
           "on": "mouseover",
@@ -55,7 +61,8 @@
           "empty": "none"
         }
       },
-      "width": 600
+      "title": "Percentage change in GDP, Inflation, & Unemployment (2006 - 2016)",
+      "width": 400
     },
     {
       "mark": {
@@ -70,15 +77,12 @@
         "color": {"field": "Metric", "type": "nominal"},
         "text": {"field": "Value", "type": "quantitative"},
         "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
+        "y": {"field": "Value", "title": null, "type": "quantitative"}
       },
-      "height": 400,
-      "transform": [{"filter": {"selection": "selector010"}}],
-      "width": 800
+      "height": 200,
+      "title": "Percentage change in GDP, Inflation, & Unemployment (2006 - 2016)",
+      "transform": [{"filter": {"selection": "selector001"}}],
+      "width": 400
     },
     {
       "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
@@ -86,15 +90,12 @@
         "color": {"field": "Metric", "type": "nominal"},
         "text": {"field": "Value", "type": "quantitative"},
         "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
+        "y": {"field": "Value", "title": null, "type": "quantitative"}
       },
-      "height": 400,
-      "transform": [{"filter": {"selection": "selector010"}}],
-      "width": 800
+      "height": 200,
+      "title": "Percentage change in GDP, Inflation, & Unemployment (2006 - 2016)",
+      "transform": [{"filter": {"selection": "selector001"}}],
+      "width": 400
     }
   ],
   "data": {"name": "data-a2782ad4c223fcc27621ccffe2e65585"},
