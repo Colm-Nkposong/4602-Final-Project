@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.28.0"></script>
@@ -21,7 +21,7 @@
     "color": {
       "condition": {
         "field": "unemployment_rate",
-        "scale": {"domain": [2.3, 13.7], "scheme": "blues"},
+        "scale": {"domain": [0, 15], "scheme": "viridis"},
         "title": "Unemployment Rate (%)",
         "type": "quantitative",
         "test": "datum.unemployment_rate > 0"
@@ -37,10 +37,10 @@
       }
     ]
   },
-  "height": 300,
+  "height": 500,
   "projection": {"type": "albersUsa"},
   "selection": {
-    "select": {
+    "Selection": {
       "type": "single",
       "fields": ["year"],
       "bind": {"input": "range", "max": 2018, "min": 2000, "step": 1},
@@ -108,9 +108,9 @@
       "calculate": "isValid(datum.unemployment_rate) ? datum.unemployment_rate : -1",
       "as": "unemployment_rate"
     },
-    {"filter": {"selection": "select"}}
+    {"filter": {"selection": "Selection"}}
   ],
-  "width": 500,
+  "width": 700,
   "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json",
   "datasets": {
     "data-9b89aee94274f796c6c36e3c6d438250": [
