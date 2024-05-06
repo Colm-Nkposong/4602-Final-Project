@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.28.0"></script>
@@ -12,42 +12,44 @@
   "config": {"view": {"continuousWidth": 400, "continuousHeight": 300}},
   "vconcat": [
     {
-      "mark": "line",
+      "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "point": {"fill": "white", "filled": false}
+      },
       "encoding": {
         "color": {"field": "Metric", "type": "nominal"},
         "x": {
           "field": "DATE",
-          "scale": {"domain": {"selection": "selector006"}},
+          "scale": {"domain": {"selection": "selector052"}},
           "type": "temporal"
         },
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
+        "y": {"field": "Value", "title": null, "type": "quantitative"}
       },
       "height": 200,
+      "title": "Percentage change in GDP, Inflation, & Unemployment (2006 - 2016)",
       "width": 400
     },
     {
-      "mark": "line",
+      "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "point": {"fill": "white", "filled": false}
+      },
       "encoding": {
         "color": {"field": "Metric", "type": "nominal"},
         "x": {"field": "DATE", "type": "temporal"},
-        "y": {
-          "field": "Value",
-          "title": "Percentage change over time",
-          "type": "quantitative"
-        }
+        "y": {"field": "Value", "title": null, "type": "quantitative"}
       },
       "height": 60,
       "selection": {
-        "selector006": {
+        "selector052": {
           "type": "interval",
           "encodings": ["x"],
           "resolve": "global"
         }
       },
+      "title": "Percentage change in GDP, Inflation, & Unemployment (2006 - 2016)",
       "width": 400
     }
   ],
